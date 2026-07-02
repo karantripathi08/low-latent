@@ -1,4 +1,19 @@
-# Benchmark Report Template
+# CerebroX Benchmark Report
+
+Use the benchmark mode to measure the decision engine itself.
+
+## Metrics
+
+- average decision latency
+- p95 decision latency
+- dashboard render latency
+- ranking throughput
+
+## Example outcome
+
+The current demo path runs the collector, snapshot, predictor, and advisor in a small local pipeline and reports the time in nanoseconds for each decision loop.
+
+This is the right metric for a portfolio project because it proves the engine can react quickly, even though it is not modifying the kernel scheduler directly.# Benchmark Report Template
 
 Use the `benchmark` executable or `./cerebro benchmark` to produce a local report.
 

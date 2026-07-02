@@ -1,4 +1,25 @@
-# Architecture
+# CerebroX Architecture
+
+```mermaid
+flowchart TD
+    A[System events or /proc samples] --> B[Collector]
+    B --> C[System Snapshot]
+    C --> D[Predictor]
+    D --> E[Advisor]
+    E --> F[Scheduling recommendation]
+```
+
+## Flow
+
+1. The collector ingests process samples from synthetic traces or Linux `/proc`-style data.
+2. The system snapshot keeps a short history for each process.
+3. The predictor classifies the workload and estimates the next CPU pressure.
+4. The advisor turns the prediction into a scheduling recommendation.
+5. The CLI renders the result as a terminal dashboard with microsecond-scale latency measurements.
+
+## Design goal
+
+CerebroX is a userspace intelligence layer. It does not replace the kernel scheduler. It demonstrates how a low-latency decision engine can predict workload spikes and produce proactive scheduling advice before the machine feels pressure.# Architecture
 
 ```mermaid
 flowchart TD

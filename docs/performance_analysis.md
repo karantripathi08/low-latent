@@ -1,4 +1,25 @@
-# Performance Analysis
+# CerebroX Performance Analysis
+
+## What it helps with
+
+CerebroX is meant to reduce the time it takes to understand a workload spike and decide what to do about it.
+
+It helps with:
+
+- keeping foreground work responsive
+- warning about bursty CPU or memory growth
+- separating interactive and background tasks
+- steering heavy I/O jobs away from latency-sensitive workloads
+
+## What it resolves
+
+- the OS no longer needs to rely only on reactive observation
+- users can see predicted workload pressure before it peaks
+- scheduling advice becomes measurable in nanoseconds or microseconds
+
+## Scope
+
+This project does not directly patch Linux CFS or control every scheduling detail. It is a userspace intelligence layer that demonstrates the decision logic and the latency budget you would need for a real proactive scheduler.# Performance Analysis
 
 ## Optimizations Included
 

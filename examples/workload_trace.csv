@@ -1,0 +1,6 @@
+pid,name,cpu_percent,memory_mb,threads,context_switches,io_bytes_per_sec,foreground
+101,chrome,18.0,1450,32,1200,250000,0
+202,valorant,24.0,2200,18,2400,1500000,1
+303,zoom,14.0,900,14,1600,180000,1
+404,docker,42.0,2600,40,9000,2100000,0
+505,database,55.0,4100,72,12000,5000000,0

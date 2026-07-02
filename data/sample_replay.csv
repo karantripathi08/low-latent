@@ -1,4 +1,0 @@
-timestamp,symbol,side,price,quantity
-1,AAPL,BUY,150.2,100
-2,AAPL,SELL,150.2,100
-3,MSFT,BUY,320,50

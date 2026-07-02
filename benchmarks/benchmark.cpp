@@ -1,3 +1,10 @@
+#include "cerebrox/controller.hpp"
+
+int main() {
+    cerebrox::Controller controller{};
+    controller.benchmark(250);
+    return 0;
+}
 #include "cerebro/engine.hpp"
 
 #include <chrono>

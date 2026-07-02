@@ -1,43 +1,26 @@
-# Cerebro
+# CerebroX
 
-Cerebro is a high-performance C++20 exchange simulator designed to explore low-latency systems, event-driven architectures, and modern systems programming techniques inspired by high-frequency trading infrastructure.
+CerebroX is a C++20 userspace operating-system intelligence layer that predicts workload behavior and recommends CPU scheduling actions in microseconds.
 
-Built entirely in modern C++, Cerebro simulates the critical components of an electronic exchange while focusing on microsecond-level processing latency, high throughput, and predictable execution paths.
+It is designed to demonstrate:
 
-The project is intended for learning and portfolio demonstration purposes only and does **not** connect to real exchanges or execute real trades.
+- low-latency event processing
+- process-state tracking
+- workload prediction
+- scheduling recommendations
+- benchmarkable decision latency
+- Linux compatibility through `/proc`-style data collection with synthetic fallback on non-Linux hosts
 
-## Performance Targets
+## What it helps with
 
-* Process 1,000,000+ market events per second
-* Maintain sub-10 microsecond average pipeline latency
-* Achieve sub-5 microsecond order matching latency
-* Support sustained throughput under heavy simulated market load
-* Minimize dynamic allocations using memory pools and object reuse
-* Reduce synchronization overhead using lock-free communication primitives
+CerebroX helps users and engineers understand when a machine is about to become CPU-bound, memory-heavy, or latency-sensitive. Instead of reacting after a spike, it looks for trends and recommends actions such as protecting foreground tasks, boosting priority, pinning work to cores, or moving background jobs out of the way.
 
-## Features
+It is useful for:
 
-* Event-driven exchange processing pipeline
-* Binary market packet decoding
-* Price-time priority order book
-* Partial and full order matching engine
-* Pre-trade risk validation
-* Real-time statistics and telemetry
-* Asynchronous logging subsystem
-* Lock-free SPSC queue support
-* Benchmark and stress testing modes
-* CSV replay engine for deterministic testing
-
-## Engineering Concepts Demonstrated
-
-* Low-latency event processing
-* Cache-friendly data structures
-* Move semantics and ownership transfer
-* Memory pools and allocation reduction
-* Multithreading and synchronization
-* Lock-free programming with atomics
-* Throughput and latency benchmarking
-* Modern C++20 systems design
+- gaming laptops that stutter when background tasks spike
+- video-call scenarios where foreground responsiveness matters
+- server operators who want early warning before overload
+- systems engineers who want a small, measurable low-latency decision engine
 
 ## Build
 
@@ -49,38 +32,38 @@ cmake --build build --config Release
 ## Run
 
 ```bash
-./build/cerebro demo
-./build/cerebro simulate
-./build/cerebro benchmark
-./build/cerebro replay data/sample_replay.csv
-./build/cerebro stress --rate 1000000
-./build/cerebro orderbook
+./build/cerebrox demo
+./build/cerebrox live
+./build/cerebrox benchmark
 ```
 
-## Example Benchmark Output
+## Demo output
 
-```text
-Packets Processed      : 10,000,000
-Throughput             : 8.7M packets/sec
+The demo shows a dashboard with:
 
-Average Latency        : 3.4 µs
-P50 Latency            : 2.1 µs
-P95 Latency            : 5.7 µs
-P99 Latency            : 8.3 µs
+- process name and PID
+- predicted workload class
+- scheduling recommendation
+- rationale for the recommendation
+- benchmark-style decision latency
 
-Order Matches/sec      : 1.2M
-Rejected Orders        : 0.3%
+## Project flow
+
+```mermaid
+flowchart TD
+	A[System events or /proc samples] --> B[Collector]
+	B --> C[System Snapshot]
+	C --> D[Predictor]
+	D --> E[Advisor]
+	E --> F[Scheduling recommendation]
 ```
 
-## Why Cerebro?
+## Core idea
 
-Cerebro was built to provide hands-on experience with the technologies and design patterns commonly found in:
+Modern systems usually react after pressure appears. CerebroX predicts workload changes earlier and reduces the time it takes to make a scheduling decision to microseconds on the local machine.
 
-* High-frequency trading engines
-* Database internals
-* Game engines
-* Network infrastructure
-* Real-time analytics systems
-* Performance-critical backend services
+## Notes
 
-The goal is not to simulate financial markets accurately, but to build a realistic environment for experimenting with the challenges of modern low-latency software engineering.
+- This is a userspace intelligence layer, not a kernel patch.
+- It does not directly reimplement Linux CFS.
+- It is a portfolio project that demonstrates the design of proactive scheduling intelligence.

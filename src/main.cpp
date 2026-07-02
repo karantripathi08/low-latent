@@ -1,7 +1,6 @@
-#include "cerebro/cli.hpp"
+#include "cerebrox/cli.hpp"
 
 int main(int argc, char** argv) {
-    cerebro::Engine engine{};
-    cerebro::Cli cli{engine};
+    cerebrox::Cli cli{};
     return cli.run(argc, argv);
 }

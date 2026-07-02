@@ -1,0 +1,7 @@
+flowchart TD
+    A[Market Data Generator] --> B[Packet Decoder]
+    B --> C[Order Book Update]
+    C --> D[Risk Engine]
+    D --> E[Matching Engine]
+    E --> F[Statistics Engine]
+    F --> G[Dashboard]

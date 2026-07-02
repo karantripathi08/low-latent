@@ -1,0 +1,15 @@
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+*.o
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.log
+.vs/
+.idea/
+.vscode/*.code-workspace
